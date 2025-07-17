@@ -1,0 +1,28 @@
+.navbar {
+  text-align: center;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  margin: 1rem;
+}
+.sign-in-button {
+  background-color: rgba(240, 248, 255, 0.386);
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  width: 5rem;
+  height: 3rem;
+}
+.sign-in-button:hover {
+  background-color: rgba(69, 69, 69, 0.361);
+}
+
+.main-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 0rem solid transparent;
+
+  img {
+    height: 20rem;
+  }
+}
