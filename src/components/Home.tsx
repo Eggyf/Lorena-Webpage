@@ -1,11 +1,17 @@
 import React from 'react'
+import '../styles/home.css'
 import AboutUs from './AboutUs';
 import WelcomePage from './WelcomePage';
+import NewLaunchPage from './NewLaunchPage';
 function Home() {
   return (
-      <>
-          <WelcomePage />
-      <AboutUs/>
+    <>
+      <div className='home-body'>
+        <WelcomePage />
+        <AboutUs/>
+        <NewLaunchPage/>
+      </div>
+     
       </>
   )
 }
