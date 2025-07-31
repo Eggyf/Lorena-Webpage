@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.title-icons {
+  width: 45%;
+}
+.shop-brand {
+  width: 45%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
