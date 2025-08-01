@@ -3,13 +3,14 @@ import '../styles/home.css'
 import AboutUs from './AboutUs';
 import WelcomePage from './WelcomePage';
 import NewLaunchPage from './NewLaunchPage';
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 import Footer from './Footer';
+import Navbarp from './Navbar';
 function Home() {
   return (
     <>
       <div className='home-body'>
-        <Navbar/>
+        <Navbarp/>
         <WelcomePage />
         <AboutUs/>
         <NewLaunchPage />
