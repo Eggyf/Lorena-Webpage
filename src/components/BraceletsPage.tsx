@@ -1,42 +1,80 @@
-import React from 'react'
-import Product from './Product';
-import "../styles/braceletsPage.css"
+import React, { useState } from 'react';
 import Navbar from './Navbar';
-import { Link } from 'react-router-dom';
+import Product from './Product';
 import productos from './productos';
-function BraceletsPage() {
-  
+import CartDropdown from './CartDropdown';
+import "../styles/braceletsPage.css";
+import { Link } from 'react-router-dom';
+import { Producto } from './productos';
+
+const BraceletsPage: React.FC = () => {
+  const [cart, setCart] = useState<Producto[]>([]);
+  const [showCart, setShowCart] = useState(false);
+
+  const handleAddToCart = (product: Producto) => {
+  setCart(prevCart => {
+    const existingIndex = prevCart.findIndex(p => p.id === product.id);
+    if (existingIndex >= 0) {
+      const updatedCart = [...prevCart];
+      const existingProduct = updatedCart[existingIndex];
+      updatedCart[existingIndex] = { 
+        ...existingProduct,
+        qty: existingProduct.qty + 1 // ya existe, seguro tiene qty number
+      };
+      return updatedCart;
+    } else {
+      return [...prevCart, { ...product, qty: 1 }]; // qty inicial 1
+    }
+  });
+};
 
 
+  const removeItem = (id: number) =>  {
+      setCart(prev => prev.filter(item => item.id !== id));
+  };
+
+  const handleComprar = () => {
+    alert('¡Compra realizada!');
+    setCart([]);
+    setShowCart(false);
+  };
 
   return (
     <>
-      <Navbar />
-      
+      <Navbar 
+        cartItems={cart}                      // Pasa el carrito y control de visibilidad
+        onRemoveItem={removeItem}
+        onComprar={handleComprar}
+        showCart={showCart}
+        setShowCart={setShowCart}
+      />
+
       <div className='container logo'>
-        <Link to={'/'}><img src='../../Iridiscencia W T-03.png' alt='hola'></img></Link>
-        
+        <Link to={'/'}>
+          <img src='../../Iridiscencia W T-03.png' alt='logo' />
+        </Link>
       </div>
-    
-     <div className="container py-4">
-      <div className="row g-4">
-        {productos.map((producto, idx: number) => (
-          <div className="col-12 col-md-4" key={idx}>
-            <Link to={`/product/${idx}`} style={{ textDecoration: 'none' }}>
+
+      <div className="container py-4">
+        <div className="row g-4">
+          {productos.map((producto: Producto, idx: number) => (
+            <div className="col-12 col-md-4" key={idx}>
               <Product
+                id={producto.id}
                 image={producto.image}
                 name={producto.name}
                 description={producto.description}
                 price={producto.price}
                 currency={producto.currency}
+                qty={producto.qty}
+                onAddToCart={() => handleAddToCart(producto)}
               />
-            </Link>
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-     </> 
-  )
-}
+    </>
+  );
+};
 
-export default BraceletsPage
+export default BraceletsPage;
