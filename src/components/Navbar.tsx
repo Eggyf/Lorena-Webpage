@@ -36,6 +36,15 @@ const Navbar: React.FC<NavbarProps> = ({
           onClick={() => setShowCart(!showCart)}
         >
           <img src="/icons/icons8-carrito-de-compras-20.png" alt="Carrito" />
+          {cartItems.length > 0 && (
+            <span
+              className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              style={{ fontSize: '0.75rem' }}
+            >
+              {cartItems.length}
+              <span className="visually-hidden">productos en el carrito</span>
+            </span>
+          )}
         </button>
         {showCart && (
           <CartDropdown
