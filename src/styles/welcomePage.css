@@ -1,5 +1,5 @@
 .welcome-body {
-  /* background-image: url("../../public/Desing\ pag\ web-04-1.jpg"); */
+  background-image: url("../../public/Desing\ pag\ web\ fondo-04.jpg");
   background-size: 100vw 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -18,7 +18,7 @@ button {
   flex-direction: row;
   justify-content: space-around;
   border: 0rem solid transparent;
-  margin-top: 5%;
+  /* margin-top: 5%; */
 
   img {
     height: 20rem;

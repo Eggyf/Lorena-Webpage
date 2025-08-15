@@ -5,7 +5,8 @@ import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import JewelsPage from './components/JewelsPage';
 import SoundsPage from './components/SoundsPage';
 import BraceletsPage from './components/BraceletsPage';
-
+import ProductDetail from './components/ProductDetail';
+import SignInPage from './components/SignInPage';
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/jewels' element={<JewelsPage />} />
           <Route path='/sounds' element={<SoundsPage />} />
-          <Route path='/bracelets' element={<BraceletsPage/>}/>
+          <Route path='/bracelets' element={<BraceletsPage />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path='/sign-in' element={<SignInPage/>}/>
         </Routes>
       
       </Router>

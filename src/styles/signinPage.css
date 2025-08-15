@@ -1,0 +1,29 @@
+.signin-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin-card {
+  max-width: 400px;
+  width: 100%;
+  padding: 1.5rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.375rem;
+  background-color: #fff;
+}
+
+.signin-title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Bootstrap classes como .mb-3, .form-label, .form-control, .btn ya se usan directamente desde Bootstrap */
+
+/* Puedes personalizar otros estilos adicionales aquí si quieres */
+
+/* Ejemplo: invalid-feedback estilo */
+.invalid-feedback {
+  display: block;
+}
