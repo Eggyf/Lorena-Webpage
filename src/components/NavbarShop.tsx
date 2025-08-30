@@ -1,14 +1,21 @@
 import React from 'react'
 import "../styles/navbarshop.css"
+import { useNavigate } from 'react-router-dom';
 function NavbarShop() {
+  const navigate = useNavigate();
+
+  const goSignIn = () => {
+    navigate('/sign-in')
+  }
   return (
+
   <>
       
 
       <nav className="navbar navbar-expand-lg navbar-custom px-3">
         <div className="container-fluid">
           {/* Botón Sign In a la izquierda */}
-          <button type="button" className="btn btn-outline-light btn-signin me-3">
+          <button type="button" className="btn btn-outline-light btn-signin me-3" onClick={goSignIn}>
             Sign In
           </button>
 
@@ -21,17 +28,17 @@ function NavbarShop() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <a className="nav-link" href="/necklaces">
                   necklaces
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <a className="nav-link" href="/rings">
                   rings
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <a className="nav-link" href="/earrings">
                   earrings
                 </a>
               </li>

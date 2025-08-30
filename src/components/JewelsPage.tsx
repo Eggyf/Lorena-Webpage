@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../styles/jewelsPage.css'
 import NavbarShop from './NavbarShop';
+import Footer from './Footer';
 function JewelsPage() {
  const navigate = useNavigate();
 
@@ -66,7 +67,22 @@ function JewelsPage() {
                 </ul>
             </div>
 
-        
+            <div className='container d-flex flex-row justify-content-around mb-5 p-5'>
+                <div className='container align-items-center justify-content-center'>
+                    <img src="/Products/collar.jpeg" alt="hola" />
+                </div>
+                <div className=''>
+                    <h3>Heading</h3>
+                    <p>Lorem ipsum dolor</p>
+                    <div className='d-flex flex-row justify-content-around'>
+                        <button className='btn btn-primary'>Button</button>
+                        <button className='btn btn-secondary'>Button</button>
+                    </div>
+
+                </div>
+            </div>
+
+        <Footer/>
       </>
       
   )

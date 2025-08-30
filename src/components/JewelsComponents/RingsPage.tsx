@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar';
-import Product from './Product';
-import productos from './productos';
-import CartDropdown from './CartDropdown';
-import "../styles/braceletsPage.css";
+import Navbar from '../Navbar';
+import Product from '../Product';
+import productos from '../productos';
+// import CartDropdown from '../CartDropdown';
+import "../../styles/braceletsPage.css";
 import { Link } from 'react-router-dom';
-import { Producto } from './productos';
+import { Producto } from '../productos';
 
-const BraceletsPage: React.FC = () => {
+const RingsPage: React.FC = () => {
   const [cart, setCart] = useState<Producto[]>([]);
   const [showCart, setShowCart] = useState(false);
 
@@ -77,4 +77,4 @@ const BraceletsPage: React.FC = () => {
   );
 };
 
-export default BraceletsPage;
+export default RingsPage;
