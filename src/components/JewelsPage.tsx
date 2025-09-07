@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../styles/jewelsPage.css'
 import NavbarShop from './NavbarShop';
+import Footer from './Footer';
 function JewelsPage() {
  const navigate = useNavigate();
 
@@ -9,7 +10,7 @@ function JewelsPage() {
         navigate(-1);
     }
     const goSound = (goto: string) => {
-        navigate(goto)
+        navigate(`/sounds/${goto}`)
     }
     const jewels = [{
         src: "Desing pag web-09.jpg",
@@ -66,7 +67,22 @@ function JewelsPage() {
                 </ul>
             </div>
 
-        
+            <div className='container d-flex flex-row justify-content-around mb-5 p-5'>
+                <div className='container align-items-center justify-content-center'>
+                    <img src="/Products/collar.jpeg" alt="hola" />
+                </div>
+                <div className='container'>
+                    <h3>Heading</h3>
+                    <p>Lorem ipsum dolor</p>
+                    <div className='d-flex flex-row justify-content-evenly align-content-start'>
+                        <button className='btn btn-primary'>Button</button>
+                        <button className='btn btn-secondary'>Button</button>
+                    </div>
+
+                </div>
+            </div>
+
+        <Footer/>
       </>
       
   )

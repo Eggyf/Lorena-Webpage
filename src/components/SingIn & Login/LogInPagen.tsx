@@ -1,13 +1,17 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import '../styles/signinPage.css'; // Importamos el archivo CSS externo
+import '../../styles/signinPage.css'; // Importamos el archivo CSS externo
 
-const SignInPage: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+const LogInPage: React.FC = () => {
+    const [username, setUsername] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [errors, setErrors] = useState<{ username?:string,email?: string; password?: string }>({});
 
-  const validate = (): { email?: string; password?: string } => {
-    const err: { email?: string; password?: string } = {};
+  const validate = (): { username?:string,email?: string; password?: string } => {
+      const err: { username?: string, email?: string; password?: string } = {};
+      if (!username) {
+          err.username = 'Username is required';
+      }
     if (!email) {
       err.email = 'El correo es requerido';
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -19,6 +23,9 @@ const SignInPage: React.FC = () => {
     return err;
   };
 
+  const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+  };
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
@@ -41,7 +48,19 @@ const SignInPage: React.FC = () => {
     <div className="signin-container">
       <div className="signin-card">
         <h2 className="signin-title">Iniciar Sesión</h2>
-        <form onSubmit={handleSubmit} noValidate>
+              <form onSubmit={handleSubmit} noValidate>
+                  <div className="mb-3">
+            <label htmlFor="email" className="form-label">Username</label>
+            <input
+              type="text"
+              className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+              id="username"
+              value={username}
+              onChange={handleUsernameChange}
+              placeholder="Username"
+            />
+            {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+          </div>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">Correo electrónico</label>
             <input
@@ -75,4 +94,4 @@ const SignInPage: React.FC = () => {
   );
 };
 
-export default SignInPage;
+export default LogInPage;
